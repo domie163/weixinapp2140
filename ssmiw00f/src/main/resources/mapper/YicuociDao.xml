@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.YicuociDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.YicuociEntity" id="yicuociMap">
+        <result property="yicuodanci" column="yicuodanci"/>
+        <result property="zimu" column="zimu"/>
+        <result property="tupian" column="tupian"/>
+        <result property="fayin" column="fayin"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="faburiqi" column="faburiqi"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.YicuociVO" >
+		SELECT * FROM yicuoci  yicuoci         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.YicuociVO" >
+		SELECT  yicuoci.* FROM yicuoci  yicuoci
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.YicuociView" >
+
+		SELECT  yicuoci.* FROM yicuoci  yicuoci 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.YicuociView" >
+		SELECT * FROM yicuoci  yicuoci <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
